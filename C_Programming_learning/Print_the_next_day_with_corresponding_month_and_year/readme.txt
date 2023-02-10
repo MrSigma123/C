@@ -1,0 +1,1 @@
+It's just a simple program, which prints the next day date with the corresponding month and year. In case the day or month input is incorrect this program prints as well the error messages pointing the issue or issues
