@@ -1,0 +1,1 @@
+Simple practice program, which exercises implementation featuring modular structure of the program (division the functionality for several separate smaller functions) and performing simple operations on an one dimensional array
