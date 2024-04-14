@@ -1,0 +1,31 @@
+1. What is portability in the programming concept?
+  - Portability means, that the source code can be runned
+    without greater issue on many different operating systems
+
+2. Explain the difference between the source code fille,
+  object code file and the executable file.
+  - * The source code file is the file, in which programmer is
+    typing the code in particular programming language
+    * The object code is the file, which contains the source code file
+    translated to the machine language, it's not ready to be run yet
+    * The executable file is the type of the file, which is able
+    to be runned, it's the object file linked with the library files and
+    the startup files specific to the particular platform
+
+3.  Name main 7 programming steps:
+  - 1. Defining the program goals
+    2. Designing the program
+    3. Writing the code
+    4. Compiling
+    5. Running
+    6. Debugging and testing
+    7. Mantaining and developing
+
+4. What is compiler?
+  - The compiler is an program, which translates the source code into
+  the machine language, which is understandable by the computer
+
+5. What is a linker?
+  - The linker is the program, which combines all the necessary program
+  components, which are necessary to be linked in order to run the program
+  as the executable file

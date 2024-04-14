@@ -1,0 +1,10 @@
+ESSENTIAL PROGRAMMING STEPS (1 & 2)
+
+1. Define the program goal
+  - The MacroMuscle main goal is to convert the inches to centimeters
+2. Design the program
+  - The program should take the number of the inches entered by the user,
+    then after submitting the answer should come up right away.
+    In order to do that we need to find and implement the formula of the
+    conversion algorithm.
+

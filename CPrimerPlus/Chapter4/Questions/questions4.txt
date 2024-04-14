@@ -1,0 +1,147 @@
+1. Run one more time listing 4.1, but this time, when the program will ask
+  about your name enter your name and your surname. What's happening and why?
+
+  A: The program will take and store inside the string (char array) just the
+     first name, the surname will be discarded, because after the whitespace
+     character the program will insert '\0' character into the string.
+
+2. Assuming, that everyone of the following code snippet is the part of complete program,
+  what will be the effect of execution of any of them?
+
+  a) printf("He sold the painting for %2.2f USD.\n", 2.345e2)
+    the program will print the message completing the placeholder with 234.50
+
+  b) printf("%c%c%c\n", 'H', 105, '\41');
+    the program will print H, letter and ... something hah,
+    just kidding, it'll print "Hi!" string
+
+  c) #define Q "His Hamlet was funny, not being that vulgar."
+    printf("%s\nconsists of %d characters.\n", Q, strlen(Q));
+    the program will print the string defined in Q and will print it's length as well
+
+  d) printf("Is %2.2e the same as %2.2f?\n", 1201.0, 1201.0);
+    the program will print the string placing the same value in different form thanks
+    to using different format specifiers, one is the exponent form and second it just
+    the floating point value
+
+3. Which changes you would put in question 2c, to display Q string in quotation marks?
+  I would just add \" at the end and at the beginning of the string
+
+4. It's time for looking for the errors!
+
+  define P pech
+  define X 10
+  main(int)
+  {
+    int age;
+    char name;
+
+    printf("Enter your name.");
+    scanf("%s", name);
+    printf("It's allringht, %c, how old are you?", name);
+    scanf("%f", age);
+    xp = age + X;
+    printf("What a %s! You have to have to be at least %d years old.\n", P, xp);
+    return 0;
+  }
+
+  corrected way:
+
+  #include <stdio.h>
+  #define P "shame"
+  #define X 10
+  int main(void)
+  {
+    int age;
+    int xp
+    char name[20];
+  
+    printf("Enter your name.\n: ");
+    scanf("%s", name);
+    printf("It's all ringht, %s, how old are you?\n: ", name);
+    scanf("%d", &age);
+    xp = age + X;
+    printf("What a %s! You have to have to be at least %d years old.\n", P, xp);
+    return 0;
+  }
+
+5. Let's assume the beginning of the program looks like this:
+
+  #define BOOK "War and peace"
+  int main(void)
+  {
+    float price = 41.99;
+    float procent = 80.0;
+  }
+
+  Form the pritnf() instruction, using constant BOOK and variable price and procent
+  to print the following text:
+  
+  The wholesale price of this particular book "War and peace" is 41.99 USD.
+  It's the 80% of the wholesale price.
+
+  printf("The wholesale price of this particular book \"War and peace\" is %2.2f USD", price);
+  printf("It's %2.1f of the wholesale price", procent);
+
+6. Which format specifier you would use to print every of the following values?
+  a) decimal integer value in field equal to it's numbers of digits: %d
+  b) hexadecimal value in format 8A in the field width of 10 characters: %4X
+  c) floating point value in 232.346 format with §10 field width: %10.3f
+  d) floating point value in format 2.33e+002 in field of 12 characters format: %12.2e
+  e) string placed to the left side of the line with the 30 characters field: %-30s
+
+7. Which format specifier would you use to print any of the following values?
+  a) integer of the unsigned long type of the width 15: (%15ld) or %15lu
+  b) hexadecimal in the format 0x8a with the width of 4: %#4x
+  c) floating point with the form of 2.33E+02 aligned to the left (width 12): %-12.2E
+  d) floating point with the sign (+232.346) width the length 10: %+10.3f
+  e) first 8 characters of string with the 8 char length: %8.8s
+
+8. Which format specifier would you use to print any of the following values?
+  a) integer with the length 4 in the length of the field of 6: %6.4d
+  b) octal with the field of the length passed by the arguments: %*o
+  c) char in the field length of 2: %2c
+  d) floating point (+3.13) with the field of the length equal to the value: %+0.2f
+  e) first 5 characters of the string aligned to the left edge (field l. 7): %-7.5s
+
+9. For every following input strings format the scanf() function reading the value.
+  Declare the variavles and arrays used in these instructions:
+  a) 101
+  int vlaue = 101;
+  scanf("%d", &value);
+  b) 22.32 and 8.34E-09
+  float val1 = 22.32;
+  float val2 = 8.23E-09;
+  scanf(" %f %f", &val1, &val2)
+  c) Chelsea
+  char[20] string;
+  scanf("%s", string);
+  d) paragraph22
+  char[15] string;
+  int value;
+  scanf("%s %d", string, &value);
+  e) paragraph 22 (ommit the paragraph word)
+  // not necessary char[15] strinng;
+  int value;
+  scanf("%* *d", &value);
+
+10. What are not printable characters? (white space characters)?
+  White space characters are the characters type, which are not printed on the sheet per se,
+  they exist, but they are not visible, these are the tabulators, newline character or space
+  character.
+
+11. What is wrong with the following instruction? How to fix it?
+  printf("The double type has %z bytes..\n", sizeof(double));
+  A: To fix it we just need to change (correct) the format specifier to %zd
+  (you could use also %zx to print the hex representation of the size value).
+  %z is not a specifier, it's a modifier, so we have to change it to %zd
+
+12. Let's assume that in your next programs you would like to use the parentheses
+  instead of cur;y brackets. Is using the following directives the good solution?
+  #define ( {
+  #define ) }
+  A: It's not a god solution. Probably it would be possible to make it, but it's not
+  that worth of the effort. The program would realize the substitution, but all round
+  brackets would be replaces, so the compiler won't recongnize which should be substituted
+  and which should remain as the roud brackets
+

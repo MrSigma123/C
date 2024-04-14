@@ -1,0 +1,125 @@
+1. How do we call all basic modules, of which the program written in C is constructed?
+  - these are functions
+2. What is a syntax error? Give one example on English and one in C language.
+  - Syntax error is akin to the grammar error, whis is the usage of the language in
+    inproper way, such as wrong word order or missing the functional characters
+    like (. ? ! ; :). The syntax error is the act of breaking the language rules.
+    * In English it would be "are ? What we doing"
+    * In C programming language it would be "int int;"
+      - which is using the reserved name as the variable nabe (forbidden)
+3. What is an semantic error? Give one example in English and one in C language.
+  - Semantic error is the error, which nature lies in it's meaning. It's the "proper"
+    usage of the language in terms of grammar (syntaxly correct), but in incorrect way.
+    * In English it would be "Are we bananas?"
+    * In C programming language it would be "three_times_smaller -= 3;"
+4. You have received the following program to accept it. Chack it's correctness,
+  fix eventual errors.
+
+  Original version:
+
+  include stdio.h
+  int main{void} /* program displays the number of the weeks in a year /*
+  (
+  int s
+
+  s : = 56;
+  print(In a year there are s weeks.\n);
+  return 0;
+
+  Corrected version:
+
+  #include <stdio.h>
+  int main(void) /* program displays the number of the weeks in a year */
+  {
+  int s;
+
+  s = 52;
+  printf("In a year there are %d weeks.\n", s);
+  return 0;
+  }
+
+5. Let's assume that every of the segments below is the part of the complete program.
+  What will be the effect of executing every single on of them?
+  a) printf("The cat walked on to the fence and blinks");
+    - printing the following text
+  b) printf("It's a beautiful song, not too long.\n");
+    - printing the text and going to the next line
+  c) printf("Woman! Miserable fluff!\nYou windy creature!");
+    - printing text, going to the next line, printing text
+  d) printf("What?\nThere is/nno dinner?\n");
+    - printing text with slash, and going to the next line
+  e) int num;
+     num = 2;
+     printf("%d + %d = %d, num. num, num + num");
+
+     RESULT:
+     printing 2 + 2 = 4
+
+6. What are the key words of the C programming language?
+  main - keyword
+  int - keyword
+  function - not a keyword
+  char - keyword
+  = - not a keyword (operator)
+
+7. In which way you would display the values of variables (words) and (lines)
+  to produce the result like: There were 3020 words and 350 lines?
+  The numbers 3020 and 350 are the variables values.
+
+  RESULT:
+  int words, lines;
+  words = 3020;
+  lines = 350;
+  printf("There were %d words and %d lines", words, lines);
+
+8. Analyze the following program:
+
+  #include <stdio.h>
+  int main(void)
+  {
+    int a, b;
+    a = 5;
+    b = 2;      /* line 7 */
+    b = a;      /* line 8 */
+    a = b;      /* line 9 */
+    printf("%d %d\n", b, a);
+    return 0;
+  }
+
+  What is the program state after executing line number 7?
+  What is the program state after executing the line number 8 and
+  then line number 9?
+
+  After executing the line number 7 the program state is as below:
+  a == 5, b == 2,
+  after executing the line number 8 the program state is as below:
+  a == 5, b == 5,
+  after executing the line number 8 the program state is as below:
+  a == 5, b == 5,
+
+9. Analyze the following program:
+
+  #include <stdio.h>
+  int main(void)
+  {
+    int x, y;
+    x = 10;
+    y = 5;      /* line 7 */
+    y = x + y;  /* line 8 */
+    x = x * y;  /* line 9 */
+    
+    printf("%d %d\n", x, y);
+  }
+
+  What is the program state after executing the line number 7, 8 and 9?
+
+  ANSWER:
+
+  After executing the line number 7 the program state is:
+  x == 10, y == 5
+
+  after line 8:
+  x == 10, y == 15;
+
+  after line 9:
+  x == 150, y == 15;

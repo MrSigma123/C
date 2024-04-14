@@ -1,0 +1,132 @@
+1. Which types would you use to represent the following data?
+(sometimes there is possibility to use several different types)
+
+a) Rio Frito inhabitant - int / long
+b) average DVD movie price - float
+c) the most common letter in the chapter - char
+d) the amount of the occurences of that letter - int/long (unsigned)
+
+2. In what cases would you use long type instead of int?
+  - I would use the long type in case the int type would be
+    too small to capacite the value (or for convinience
+    and compatibility with older system architectures [32bit])
+
+3. Which of portable types would you use in order to get 32 bit integer
+  value with the sign? How would you justify it?
+  - I would use int_32t, because it would have exactly the amount of 32 bit
+  // alternatively - int_least32_t or int_fast32_t
+  // for possibly minimal size type or fastest type
+
+4. Specify the type and there, where it's possible - meaning of the
+  following constants:
+  a) '\b' - char - backspace character -- stored as int
+  b) 1066 - int - integer value
+  c) 99.44 - float - real number stored as double
+  d) 0XAA - unsigned int - hexadecimal value
+  e) 2.0e30 - float/double - the exponential representation of the value
+
+5. Your friend made the following program, which contains errors.
+  Help her to fit it!
+
+  include <stdio.h>
+  int main
+  {
+    float g; h;
+    float tax, currency;
+
+    g = e21;
+    tax = currency*g;
+  }
+
+  FIXED PROGRAM:
+  #include <stdio.h>
+  int main(void)
+  {
+    float g, h;
+    float tax, currency;
+
+    g = 1.0e21;
+    h = g + tax;
+    printf("You owe $%%f plus %f in taxrd, what is totally
+          $%f \n", g, tax, h);
+    return 0;
+  }
+
+  6. Specify the type (like in declaration instructions) and it's format specifier
+    for printf(""); function for all the following constants:
+    a) 12         int             %d
+    b) )x3        unsigned int    %#X
+    c) 'C'        char/int        %c
+    d) 2.34E07    double          %e
+    e) '\040'     char/int        %c
+    f) 7.0        float/double    %f
+    g) 6L         long            %ld
+    h) 6.0f       float           %f
+    i) 0x5.b6p12  double          %a
+
+7. Specify the type (like in declaration instruction) and it's format
+  specifier for printf() function (while assigning 16bit int length).
+  a) 012          unsingned int   %#o
+  b) 2.9e05L      long double     %le
+  c) 's'          char/int        %c/%d
+  d) 100000       long int        %ld
+  e) '\n'         char/int        %c/%d
+  f) 20.0f        float           %f
+  g) 0x44         unsigned int    %#x
+  h) -40          signed int      %d
+
+8. Let's assume that the program begins with the following declarations:
+
+  int ention = 2;
+  long inus = 53456;
+  char symbol = 'e';
+  float e = 2.71828;
+
+  match the proper format specifiers to the following printf() instructions:
+
+  printf("Chances against number %d were like %ld to 1", ention, 
+          inus);
+  printf("Number %f we denote with %c symbol", e, symbol);
+
+9. Assuming that ch is the variable of the type char, show in which way
+  you can assing the character of return the carriage by using the control sequence,
+  decimal value, octal value or hexagonal constant.
+  (take the values in accordance to ASCII values)
+
+  char ch = '\r';
+  char ch = 13
+  char ch = '\015';
+  char ch = '\xd';
+
+10. Correct not wisely written program. (Symbol / represents division)
+
+  void main(int)    / this program is without any error /
+  {
+    cows, legs integer;
+
+    printf("How many legs did you count?\n);
+    scanf("%c", legs);
+    cows = legs / 4;
+    printf("It looks like, that you have %f cows.\n", cows);
+  }
+
+  CORRECTED PROGRAM:
+
+  #include <stdio.h>
+
+  int main(void)  /* this program is without any errors */
+  {
+    integer cows, legs;
+
+    printf("How many legs did you count?\n");
+    scanf("%d", &legs);
+    cows = legs / 4;
+    printf("It looks like, that you have %d cows.\n", cows);
+    return 0;
+  }
+
+11. Specify what means every control sequence written below:
+  a) \n - new line symbol
+  b) \\ - backslash character symbol
+  c) \" - double quote character symbol
+  d) \t - tabulation character symbol
