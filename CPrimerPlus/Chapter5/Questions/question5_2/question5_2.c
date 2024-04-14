@@ -9,3 +9,4 @@ int main(void){
   printf("d) x = 22 * 3/5\nA: 13, R: %d\n", 22 * 3/5);
   return 0;
 }
+/* Here similarly, like previously, I use convention of A: R: abbreviation */
