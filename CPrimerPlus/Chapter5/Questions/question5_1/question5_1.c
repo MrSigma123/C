@@ -1,4 +1,5 @@
-// Answers to all questions from chapter 5
+// Calculate value of x and y variables in each of the following expressions
+// Assume these variables type is int
 #include <stdio.h>
 int main(void){
   int x = 7/2;
