@@ -7,7 +7,7 @@ int main(void) {
   char answerA[5] = "mint";
   char answerB[3] = "10";
   char answerC[7] = "double";
-  char answerD[4] = "i";
+  char answerD[4] = "ii";
   printf("\tdouble mint[10];\n");
   printf("a) What is the name of that array?\n");
   scanf("%s", answer);
