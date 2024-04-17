@@ -10,6 +10,6 @@ int main(void){
   printf("a) scanf() successfully reads single char letter;\n");
   printf("A: scanf(\"%%c\") == 1, R: %d\n", test);
   printf("b) x is not equal to 5; A: x != 5, R: %d\n", x != 5);
-  printf("c) x is equal to 20 or more; A: x > 20, R: %d\n", x > 20);\
+  printf("c) x is equal to 20 or more; A: x >= 20, R: %d\n", x >= 20);\
   return 0;
 }
