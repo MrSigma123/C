@@ -7,10 +7,10 @@ int main(void) {
   int bytwo[SIZE];
   int index;
 
-  for (index = 1; index <= SIZE; index++)
-    bytwo[index] = 2 * index;
-  for (index = 1;, index <= SIZE; index++)
-    printf("%d ", bytwo);
+  for (index = 0; index < SIZE; index++)  // fixed index initialization to 0, fix limiter
+    bytwo[index] = 2 * index + 2;
+  for (index = 0; index < SIZE; index++) // as above
+    printf("%d ", bytwo[index]);           // add missing index reference
   printf("\n");
   return 0;
 }
