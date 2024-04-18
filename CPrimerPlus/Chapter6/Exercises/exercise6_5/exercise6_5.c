@@ -11,27 +11,25 @@
 #include <stdio.h>
 int main(void) {
   int i, j;
+  int limit;
   char end_character;
-  char start_character;
-  char tmp_character;
+  char character;
   printf("Enter capital character to define \"pyramid\" height: ");
   scanf("%c", &end_character);
-  start_character = 'A'; 
+  limit = end_character - 'A';
   for (i = 0; i <= end_character - 'A'; i++) {
-    j = end_character - start_character; // to calculate number of ' ' chars
-    tmp_character = start_character; // to store incremented chars
-    //printf("j = %d\n", j);
-    while (j-- -i > 0) 
+    character = 'A';
+    j = 0;
+    while (j++ < limit)
       printf("%c", ' ');
-    //printf("j = %d\n", j);
+    j = 0;
+    while (j++ < i + 1)
+      printf("%c", character++);
+    j = 0;
     while (j++ < i)
-      printf("%c", tmp_character++);
-    //printf("j = %d\n", j);
-    while (tmp_character - 1 > start_character)
-      printf("%c", --tmp_character);
+      printf("%c", --character - 1);
     printf("\n");
-    --j;
+    limit--;
   }
   return 0;
 }
-// j shouldn't be dependable value, fix
