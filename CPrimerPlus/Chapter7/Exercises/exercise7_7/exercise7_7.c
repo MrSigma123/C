@@ -22,17 +22,15 @@ int main(void) {
   printf("Enter how many hours did you worked this week (0 to exit): ");
   while (scanf("%lf", &hours) && hours != 0) {
     income_brutto = hours * INCOME_PER_HOUR;
-    if (income_brutto < TAX_TRESHOLD1) {
+    if (income_brutto < TAX_TRESHOLD1) { // slight refactoring
       tax = TAX_VALUE1 * income_brutto;
-      income_netto = income_brutto - tax;
     } else if (income_brutto > TAX_TRESHOLD1 && income_brutto < TAX_TRESHOLD2) {
       tax = TAX_TRESHOLD1 * TAX_VALUE1 + (income_brutto - TAX_TRESHOLD1) * TAX_VALUE2;
-      income_netto = income_brutto - tax;
     } else {
       tax = TAX_TRESHOLD1 * TAX_VALUE1 + (TAX_TRESHOLD2 - TAX_TRESHOLD1) * TAX_VALUE2 +
           (income_brutto - TAX_TRESHOLD2) * TAX_VALUE3;
-      income_netto = income_brutto - tax;
-    }
+    } // adapting the rule of using curly brackets even for single statement inside if statement
+    income_netto = income_brutto - tax;
     printf("\nYour result:\n");
     printf("Worked hours: %.1lf\n", hours);
     printf("Brutto income: $%.2lf\n", income_brutto);
