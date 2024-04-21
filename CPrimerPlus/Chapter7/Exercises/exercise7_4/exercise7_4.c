@@ -13,11 +13,11 @@ int main(void) {
   printf("replaces exclamation marks with two exclamation marks.\n");
   printf("Enter the tream of input to be modified (# ends the input):\n");
   while (scanf("%c", &character) && character != '#') {
-    if (character == '.') {
-      character = '!';
+    if (character == DOT) {
+      character = EXCLAMATION_MARK;
       changes++;
     }
-    else if (character == '!') {
+    else if (character == EXCLAMATION_MARK) {
       putchar(character);
       changes++;
     }
