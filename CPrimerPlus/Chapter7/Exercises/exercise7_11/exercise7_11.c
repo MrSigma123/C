@@ -31,7 +31,7 @@ int main(void) {
   double beetroots_quantity_kg = 0.0;
   double onions_quantity_kg = 0.0;
   double products_price = 0.0;
-  double products_count = 0.0;
+  double products_weight = 0.0;
   double watermelons_cost = 0.0;
   double beetroots_cost = 0.0;
   double onions_cost = 0.0;
@@ -43,7 +43,7 @@ int main(void) {
   printf("  B: beetroot\n");
   printf("  C: onion\n");
   printf("Select your product (or press Q to quit): ");
-  while (scanf("%c", &selection) != 'Q') {
+  while (scanf(" %c", &selection) && selection != 'Q') {
     quantity_in_kg = 0.0;
     if (selection == 'A' || selection == 'a' ||
         selection == 'B' || selection == 'b' ||
@@ -52,6 +52,7 @@ int main(void) {
       while (scanf("%lf", &quantity_in_kg ) && quantity_in_kg <= 0) {
         printf("Something went wrong... Enter positive number: ");
       }
+      products_weight += quantity_in_kg;
     }
     switch (selection) {
       case 'a' :
@@ -59,30 +60,34 @@ int main(void) {
         watermelon_quantity_kg += quantity_in_kg;
         watermelons_cost += watermelon_price * quantity_in_kg;
         products_price += watermelons_cost;
-        printf("You've added %lfkg of watermelons into your basket successfully!\n", quantity_in_kg);
+        printf("You've added %.3lfkg of watermelons into your basket successfully!\n", quantity_in_kg);
+        continue;
       case 'b' :
       case 'B' :
         beetroots_quantity_kg += quantity_in_kg;
         beetroots_cost += beetroot_price * quantity_in_kg;
         products_price += beetroots_cost;
-        printf("You've added %lfkg of beetroots into your basket successfully!\n", quantity_in_kg);
+        printf("You've added %.3lfkg of beetroots into your basket successfully!\n", quantity_in_kg);
+        continue;
       case 'c' :
       case 'C' :
         onions_quantity_kg += quantity_in_kg;
         onions_cost = onions_price * quantity_in_kg;
         products_price += onions_cost;
-        printf("You've added %lfkg of onions into your basket successfully!\n", quantity_in_kg);
+        printf("You've added %.3lfkg of onions into your basket successfully!\n", quantity_in_kg);
+        continue;
       default :
         printf("Unrecognized command, try again...\n");
         continue;
     }
-    products_count += quantity_in_kg;
   }
   printf("Here is your order:\n");
   printf("Products price: $%.2lf\n", products_price);
   printf("Watermelons: %.3lfkg, their cost is $%.2lf\n", watermelon_quantity_kg, watermelons_cost);
   printf("Beetroots: %.3lfkg, their cost is $%.2lf\n", beetroots_quantity_kg, beetroots_cost);
   printf("Onions: %.3lfkg, their cost is $%.2lf\n", onions_quantity_kg, onions_cost);
+  printf("The total weight of your basket is %.2lfkg\n", products_weight);
+  return 0;
 
 
 }
