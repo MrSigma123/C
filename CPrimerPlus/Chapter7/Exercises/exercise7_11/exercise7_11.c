@@ -54,24 +54,18 @@ int main(void) {
     switch (selection) {
       case 'a' :
       case 'A' :
-        for (i = 0; i < quantity; i++) {
-          watermelon_count++;
-          products_price += watermelon_price;
-        }
+          watermelon_count += quantity;
+          products_price += watermelon_price * quantity;
         printf("You've added %d watermelon(s) into your basket successfully!\n", quantity);
       case 'b' :
       case 'B' :
-        for (i = 0; i < quantity; i++) {
           beetroot_count++;
-          products_price += beetroot_price;
-        }
+          products_price += beetroot_price * quantity;
         printf("You've added %d beetroot(s) into your basket successfully!\n", quantity);
       case 'c' :
       case 'C' :
-        for (i = 0; i < quantity; i++) {
           onion_count++;
-          products_price += onion_price;
-        }
+          products_price += onion_price * quantity;
         printf("You've added %d onion(s) into your basket successfully!\n", quantity);
       default :
         printf("Unrecognized command, try again...\n");
