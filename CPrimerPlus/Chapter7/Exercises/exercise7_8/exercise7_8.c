@@ -54,9 +54,9 @@ int main(void) {
       }
     } while (option <= 0 || option > 5);
     income_brutto = hours * income_per_hour;
-    if (income_brutto < TAX_TRESHOLD1) { // slight refactoring
+    if (income_brutto <= TAX_TRESHOLD1) { // cautious, TAX_TRESHOLD1 must be included
       tax = TAX_VALUE1 * income_brutto;
-    } else if (income_brutto > TAX_TRESHOLD1 && income_brutto < TAX_TRESHOLD2) {
+    } else if (income_brutto > TAX_TRESHOLD1 && income_brutto <= TAX_TRESHOLD2) { // TAX_TRESHOLD2 as well
       tax = TAX_TRESHOLD1 * TAX_VALUE1 + (income_brutto - TAX_TRESHOLD1) * TAX_VALUE2;
     } else {
       tax = TAX_TRESHOLD1 * TAX_VALUE1 + (TAX_TRESHOLD2 - TAX_TRESHOLD1) * TAX_VALUE2 +
