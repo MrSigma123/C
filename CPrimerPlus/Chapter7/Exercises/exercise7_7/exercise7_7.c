@@ -11,8 +11,8 @@
 #include <stdio.h>
 #define INCOME_PER_HOUR 40
 #define TAX_TRESHOLD1 1200
-#define TAX_TRESHOLD2 600 + TAX_TRESHOLD1
-#define TAX_VALUE1 0.15
+#define TAX_TRESHOLD2 (600 + TAX_TRESHOLD1) // preprocessor can't perform calculations
+#define TAX_VALUE1 0.15                     // brackets are necessary here
 #define TAX_VALUE2 0.20
 #define TAX_VALUE3 0.25
 int main(void) {
