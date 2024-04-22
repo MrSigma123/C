@@ -35,10 +35,10 @@ int main(void) {
   double watermelons_cost = 0.0;
   double beetroots_cost = 0.0;
   double onions_cost = 0.0;
-  double discount, total_price, quantity_in_kg;
-  printf("This program enables taking orders of your vegetables.\n");
+  double discount, total_price, quantity_in_kg, shipping;
+  printf("This program helps you to order some vegetables.\n");
   printf("You can buy watermelons, beetroots and onions.\n");
-  printf("To add product to basket press each of the following letters:\n");
+  printf("\nTo add product to basket press each of the following letters:\n");
   printf("  A: watermelon\n");
   printf("  B: beetroot\n");
   printf("  C: onion\n");
@@ -61,32 +61,49 @@ int main(void) {
         watermelons_cost += watermelon_price * quantity_in_kg;
         products_price += watermelons_cost;
         printf("You've added %.3lfkg of watermelons into your basket successfully!\n", quantity_in_kg);
-        continue;
+        break;
       case 'b' :
       case 'B' :
         beetroots_quantity_kg += quantity_in_kg;
         beetroots_cost += beetroot_price * quantity_in_kg;
         products_price += beetroots_cost;
         printf("You've added %.3lfkg of beetroots into your basket successfully!\n", quantity_in_kg);
-        continue;
+        break;
       case 'c' :
       case 'C' :
         onions_quantity_kg += quantity_in_kg;
         onions_cost = onions_price * quantity_in_kg;
         products_price += onions_cost;
         printf("You've added %.3lfkg of onions into your basket successfully!\n", quantity_in_kg);
-        continue;
+        break;
       default :
         printf("Unrecognized command, try again...\n");
         continue;
     }
+    printf("\nEnter next product to be added to the basket.\n");
+    printf("\nTo add product to basket press each of the following letters:\n");
+    printf("  A: watermelon\n");
+    printf("  B: beetroot\n");
+    printf("  C: onion\n");
+    printf("Select your product (or press Q to quit): ");
   }
-  printf("Here is your order:\n");
-  printf("Products price: $%.2lf\n", products_price);
+  if (products_price >= 100) {
+    printf("\nYou've received a 5%% discount!\n");
+    products_price -= products_price * discount;
+  }
+  if (products_weight <= 5.0) {
+    shipping = shipping_up_5kg;
+  } else if (products_weight > 5.0 && products_weight <= 20.0){
+    shipping = shipping_up_20kg;
+  } else {
+    shipping = shipping_over_20kg + (products_weight - 20.0) * shipping_over_20kg;
+  }
+
+  printf("\n         Here is your order:\n");
+  printf("Products price: $%.2lf, their weight: %.2lfkg\n", products_price, products_weight);
   printf("Watermelons: %.3lfkg, their cost is $%.2lf\n", watermelon_quantity_kg, watermelons_cost);
-  printf("Beetroots: %.3lfkg, their cost is $%.2lf\n", beetroots_quantity_kg, beetroots_cost);
-  printf("Onions: %.3lfkg, their cost is $%.2lf\n", onions_quantity_kg, onions_cost);
-  printf("The total weight of your basket is %.2lfkg\n", products_weight);
+  printf("  Beetroots: %.3lfkg, their cost is $%.2lf\n", beetroots_quantity_kg, beetroots_cost);
+  printf("     Onions: %.3lfkg, their cost is $%.2lf\n", onions_quantity_kg, onions_cost);
   return 0;
 
 
