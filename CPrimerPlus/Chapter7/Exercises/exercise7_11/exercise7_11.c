@@ -78,7 +78,7 @@ int main(void) {
         printf("You've added %.3lfkg of onions into your basket successfully!\n", quantity_in_kg);
         break;
       default :
-        printf("Unrecognized command, try again...\n");
+        printf("Unrecognized command, try again: ");
         continue;
     }
     printf("\nEnter next product to be added to the basket.\n");
@@ -95,7 +95,9 @@ int main(void) {
     products_price -= discount;
     printf("Products price after discount: $%.2lf\n", products_price);
   }
-  if (products_weight <= 5.0) {
+  if (products_weight == 0.0) {
+    shipping = 0.0;
+  } else if (products_weight <= 5.0) {
     shipping = SHIPPING_UP_TO_5KG;
   } else if (products_weight > 5.0 && products_weight <= 20.0){
     shipping = SHIPPING_UP_TO_20KG;
