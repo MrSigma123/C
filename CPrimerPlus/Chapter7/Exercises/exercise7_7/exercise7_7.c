@@ -22,7 +22,7 @@ int main(void) {
   printf("Enter how many hours did you worked this week (0 to exit): ");
   while (scanf("%lf", &hours) && hours != 0) {
     income_brutto = hours * INCOME_PER_HOUR;
-    if (income_brutto < TAX_TRESHOLD1) { // slight refactoring
+    if (income_brutto <= TAX_TRESHOLD1) { // cautious, TAX_TRESHOLD1 must be included
       tax = TAX_VALUE1 * income_brutto;
     } else if (income_brutto > TAX_TRESHOLD1 && income_brutto < TAX_TRESHOLD2) {
       tax = TAX_TRESHOLD1 * TAX_VALUE1 + (income_brutto - TAX_TRESHOLD1) * TAX_VALUE2;
