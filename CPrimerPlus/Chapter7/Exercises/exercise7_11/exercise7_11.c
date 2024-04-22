@@ -32,7 +32,7 @@ int main(void) {
   int onion_count = 0;
   double products_price = 0.0;
   double discount, total_price;
-  int products_count, product_amount;
+  int products_count, quantity;
   int i;
   printf("This program enables taking orders of your vegetables.\n");
   printf("You can buy watermelons, beetroots and onions.\n");
@@ -42,41 +42,41 @@ int main(void) {
   printf("  C: onion\n");
   printf("Select your product (or press Q to quit): ");
   while (scanf("%c", &selection) != 'Q') {
-    product_amount = 0;
+    quantity = 0;
     if (selection == 'A' || selection == 'a' ||
         selection == 'B' || selection == 'b' ||
         selection == 'C' || selection == 'c') {
       printf("How many pieces you want? Enter a number: ");
-      while (scanf("%d", &product_amount) != 1) {
+      while (scanf("%d", &quantity) != 1) {
         printf("Sorry, we sell only whole fruits. Enter the integer number: ");
       }
     }
     switch (selection) {
       case 'a' :
       case 'A' :
-        for (i = 0; i < product_amount; i++) {
+        for (i = 0; i < quantity; i++) {
           watermelon_count++;
           products_price += watermelon_price;
         }
-        printf("You've added %d watermelon(s) into your basket successfully!\n", product_amount);
+        printf("You've added %d watermelon(s) into your basket successfully!\n", quantity);
       case 'b' :
       case 'B' :
-        for (i = 0; i < product_amount; i++) {
+        for (i = 0; i < quantity; i++) {
           beetroot_count++;
           products_price += beetroot_price;
         }
-        printf("You've added %d beetroot(s) into your basket successfully!\n", product_amount);
+        printf("You've added %d beetroot(s) into your basket successfully!\n", quantity);
       case 'c' :
       case 'C' :
-        for (i = 0; i < product_amount; i++) {
+        for (i = 0; i < quantity; i++) {
           onion_count++;
           products_price += onion_price;
         }
-        printf("You've added %d onion(s) into your basket successfully!\n", product_amount);
+        printf("You've added %d onion(s) into your basket successfully!\n", quantity);
       default :
         printf("Unrecognized command, try again...\n");
         continue;
     }
-    products_count++;
+    products_count += quantity;
   }
 }
