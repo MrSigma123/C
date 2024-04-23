@@ -17,8 +17,8 @@
   and the overall cost of the whole order. */
 #include <stdio.h>
 int main(void) {
-  const double WATERMELON_PRICE = 1.25;           // per 1kg
-  const double BEETROOT_PRICE = 0.65;
+  const double WATERMELONS_PRICE = 1.25;           // per 1kg
+  const double BEETROOTS_PRICE = 0.65;
   const double ONIONS_PRICE = 0.89;
   const double DISCOUNT_TRESHOLD = 100.0;
   const double DISCOUNT_VALUE = 0.05;
@@ -59,14 +59,14 @@ int main(void) {
       case 'a' :
       case 'A' :
         watermelon_quantity_kg += quantity_in_kg;
-        watermelons_cost += WATERMELON_PRICE * quantity_in_kg;
+        watermelons_cost += WATERMELONS_PRICE * quantity_in_kg;
         products_price += watermelons_cost;
         printf("You've added %.3lfkg of watermelons into your basket successfully!\n", quantity_in_kg);
         break;
       case 'b' :
       case 'B' :
         beetroots_quantity_kg += quantity_in_kg;
-        beetroots_cost += BEETROOT_PRICE * quantity_in_kg;
+        beetroots_cost += BEETROOTS_PRICE * quantity_in_kg;
         products_price += beetroots_cost;
         printf("You've added %.3lfkg of beetroots into your basket successfully!\n", quantity_in_kg);
         break;
@@ -115,5 +115,6 @@ int main(void) {
   }
   printf("   Shipping:  $%4.2lf\n", shipping);
   printf("      TOTAL:  $%4.3lf\n", total_price);
+  printf(" Thank you for shopping with us :)\n");
   return 0;
 }
