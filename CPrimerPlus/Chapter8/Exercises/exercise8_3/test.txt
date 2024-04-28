@@ -1,0 +1,4 @@
+This program can use redirection operators
+because of using EOF as the input stream end indicator.
+Use the following command to test executionable file with test.txt file:
+  ./exercise8_3.c < test.txt
