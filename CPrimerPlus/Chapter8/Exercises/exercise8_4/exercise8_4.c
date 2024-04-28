@@ -16,16 +16,14 @@ int main(void) {
   double letters_average;
   printf("This program counts the average amount of letters in each word\n"
          "from the input stream. Enter the character stream: ");
-  while ((character = getchar()) != EOF) {
-    if (isspace(character_prev) == 0 && ispunct(character_prev) == 0 && isspace(character) == 0 && ispunct(character) == 0) {
-      letters_count++;
-    } else if (isspace(character_prev) != 0 || ispunct(character_prev) != 0 && isspace(character) == 0 && ispunct(character) == 0) {
+  while ((character = getchar()) != EOF) { // simplified, optimized and refactored
+    if (isalpha(character_prev) == 0 && isalpha(character) != 0) {
       word_count++;
       letters_count++;
-    } else { // two remaining conditions simplified in one else
-      // if (isspace(character_prev) == 0 || ispunct(character_prev) == 0 && isspace(character) != 0 || ispunct(character) != 0)
-      // if (isspace(character_prev) == 0 || ispunct(character_prev) == 0 && isspace(character) == 0 || ispunct(character) == 0) 
-      ; // empty statement
+    } else if (isalpha(character) != 0) {
+      letters_count++;
+    } else {
+      ;
     }
     character_prev = character;
   }
