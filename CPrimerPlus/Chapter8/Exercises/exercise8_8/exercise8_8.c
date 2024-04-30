@@ -40,13 +40,16 @@
 
 void menu(void);
 char take_first_printed_char(void);
+float getfloat(void);
 float addition(void);
 float subtraction(void);
 float multiplication(void);
 float division(void);
 
 int main(void) {
+  menu();
 
+  return 0;
 }
 
 void menu(void) {
@@ -91,12 +94,27 @@ char take_first_printed_char(void) {
   return ch;
 }
 
+float getfloat(void) {
+  float input;
+  char character; // to store non int data type
+
+  while (scanf("%f", &input) != 1) {;
+    while ((character = getchar()) != '\n') {
+      putchar(character); // ommits and display wrong data
+    }
+    printf(" is not an floating point numerical value.\nPlease enter ");
+    printf("floating point numberical value: i.e.  2.5, -178E8 or 3: ");
+  }
+
+  return input;
+}
+
 float addition(void) {
   float val1, val2, result;
   printf("Enter first number: ");
-  scanf("%f", &val1);
+  val1 = getfloat();
   printf("Enter second number: ");
-  scanf("%f", &val2);
+  val2 = getfloat();
   result = val1 + val2;
   printf("%f + %f = %f\n", val1, val2, result);
 
@@ -106,9 +124,9 @@ float addition(void) {
 float subtraction(void) {
   float val1, val2, result;
   printf("Enter first number: ");
-  scanf("%f", &val1);
+  val1 = getfloat();
   printf("Enter second number: ");
-  scanf("%f", &val2);
+  val2 = getfloat();
   result = val1 - val2;
   printf("%f - %f = %f\n", val1, val2, result);
 
@@ -118,9 +136,9 @@ float subtraction(void) {
 float multiplication(void) {
   float val1, val2, result;
   printf("Enter first number: ");
-  scanf("%f", &val1);
+  val1 = getfloat();
   printf("Enter second number: ");
-  scanf("%f", &val2);
+  val2 = getfloat();
   result = val1 * val2;
   printf("%f * %f = %f\n", val1, val2, result);
 
@@ -130,9 +148,9 @@ float multiplication(void) {
 float division(void) {
   float val1, val2, result;
   printf("Enter first number: ");
-  scanf("%f", &val1);
+  val1 = getfloat();
   printf("Enter second number: ");
-  scanf("%f", &val2);
+  val2 = getfloat();
   if (val2 == 0) {
     do {
       printf("Enter second number different than 0: ");
