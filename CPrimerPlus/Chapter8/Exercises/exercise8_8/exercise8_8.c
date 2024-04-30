@@ -57,3 +57,15 @@ float addition(void) {
 
   return result;
 }
+
+float subtraction(void) {
+  float val1, val2, result;
+  printf("Enter first number: ");
+  scanf("%f", &val1);
+  printf("Enter second number: ");
+  scanf("%f", &val2);
+  result = val1 - val2;
+  printf("%f - %f = %f\n", val1, val2, result);
+
+  return result;
+}
