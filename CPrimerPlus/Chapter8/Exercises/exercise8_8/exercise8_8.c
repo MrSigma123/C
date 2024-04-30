@@ -36,7 +36,9 @@
   */
 
 #include <stdio.h>
+#include <ctype.h>
 
+char take_first_printed_char(void);
 float addition(void);
 float subtraction(void);
 float multiplication(void);
@@ -56,6 +58,18 @@ float addition(void) {
   printf("%f + %f = %f\n", val1, val2, result);
 
   return result;
+}
+
+char take_first_printed_char(void) {
+  char ch;
+  ch = getchar();
+  while(isspace(ch) != 0) {
+    ch = getchar();
+  }
+  while(getchar() != '\n') { // to eliminate the rest of input stream
+    continue;
+  }
+  return ch;
 }
 
 float subtraction(void) {
