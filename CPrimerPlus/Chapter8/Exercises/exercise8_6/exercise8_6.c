@@ -5,7 +5,7 @@
 #include <ctype.h> // necessary library for isspace() function
 char take_first_printed_char(void);
 int main(void) {
-  printf("Enter the character: ");
+  printf("Enter the character stream: ");
   putchar(take_first_printed_char());
   return 0;
 }
@@ -14,6 +14,9 @@ char take_first_printed_char(void) {
   ch = getchar();
   while(isspace(ch) != 0) {
     ch = getchar();
+  }
+  while (getchar() != '\n') { // to eliminate remaining buffer characters
+    continue;
   }
   return ch;
 }
