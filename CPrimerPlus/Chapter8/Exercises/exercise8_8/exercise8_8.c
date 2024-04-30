@@ -38,6 +38,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
+void menu(void);
 char take_first_printed_char(void);
 float addition(void);
 float subtraction(void);
@@ -45,19 +46,37 @@ float multiplication(void);
 float division(void);
 
 int main(void) {
-  
+
 }
 
-float addition(void) {
-  float val1, val2, result;
-  printf("Enter first number: ");
-  scanf("%f", &val1);
-  printf("Enter second number: ");
-  scanf("%f", &val2);
-  result = val1 + val2;
-  printf("%f + %f = %f\n", val1, val2, result);
-
-  return result;
+void menu(void) {
+  char choice = 'x'; // assume default switch case
+  do {
+    printf("Choose one of the following mathematical operations:\n");
+    printf("a. addition          b. subtraction\n");
+    printf("c. multiplication    d. division\n");
+    printf("q. quit\n");
+    choice = take_first_printed_char();
+    switch(choice) {
+      case 'a' :
+        addition();
+        break;
+      case 'b' :
+        subtraction();
+        break;
+      case 'c' :
+        multiplication();
+        break;
+      case 'd' :
+        division();
+        break;
+      case 'q' :
+        printf("You've chosed the option to quit. The program ends here.\n");
+        break;
+      default  :
+        printf("Unrecognized option, try again...\n");
+    } 
+  } while (choice != 'q');
 }
 
 char take_first_printed_char(void) {
@@ -70,6 +89,18 @@ char take_first_printed_char(void) {
     continue;
   }
   return ch;
+}
+
+float addition(void) {
+  float val1, val2, result;
+  printf("Enter first number: ");
+  scanf("%f", &val1);
+  printf("Enter second number: ");
+  scanf("%f", &val2);
+  result = val1 + val2;
+  printf("%f + %f = %f\n", val1, val2, result);
+
+  return result;
 }
 
 float subtraction(void) {
