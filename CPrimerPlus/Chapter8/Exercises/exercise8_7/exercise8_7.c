@@ -11,33 +11,35 @@
 int main(void) {
   double hours;
   double income_per_hour, income_brutto, income_netto, tax;
-  int option = 0; // empty as default
+  char option = ' '; // empty as default
   printf("This program calculates your income.\n");
   printf("Enter how many hours did you worked this week (0 to exit): ");
-  while (scanf("%lf", &hours) && hours != 0) {
+  while (scanf("%lf", &hours) && hours != 0) { // character imput will be read as 0
+    getchar(); // works as buffer flush by taking newline character stored in buffered input after previous scanf("%d")
     printf("%s\n", STARS);
     printf("Choose the desired value of your income per hour (enter character):\n");
-    printf("1) 35$/h.                          2) 37$/h.\n");
-    printf("3) 40$/h.                          4) 45$/h.\n");
-    printf("5) quit\n");
+    printf("a) 35$/h.                          b) 37$/h.\n");
+    printf("c) 40$/h.                          d) 45$/h.\n");
+    printf("q) quit\n");
     printf("%s", STARS);
     do {
-    printf("\nYour choice: ");
-    scanf("%d", &option);
-      switch (option) {
-        case 1 :
+      printf("\nYour choice: ");
+      scanf("%c", &option);
+      getchar(); // to not take newline as an input, like above, we do that manually instead using fflush() or space before 
+      switch (option) {                                                      // like scanf(" %c", &x) for training purposes
+        case 'a' :
           income_per_hour = 35.0;
           break;
-        case 2 :
+        case 'b' :
           income_per_hour = 37.0;
           break;
-        case 3 :
+        case 'c' :
           income_per_hour = 40.0;
           break;
-        case 4 :
+        case 'd' :
           income_per_hour = 45.0;
           break;
-        case 5 :
+        case 'q' :
           printf("You've entered option to quit. Program ends here...\n");
           printf("Goodbye!\n");
           return 0;
@@ -45,7 +47,7 @@ int main(void) {
           printf("Unrecognized input, try again...\n");
           continue;
       }
-    } while (option <= 0 || option > 5);
+    } while (option < 'a' || option > 'd' && option != 'q');
     income_brutto = hours * income_per_hour;
     if (income_brutto <= TAX_TRESHOLD1) { // cautious, TAX_TRESHOLD1 must be included
       tax = TAX_VALUE1 * income_brutto;
@@ -65,6 +67,6 @@ int main(void) {
     printf("\nEnter another number of working hours to calculate brutto income\n");
     printf("tax and netto income: ");
   }
-  printf("You've entered 0, program ends here.\n");
+  printf("You've entered 0 or improper character, program ends here.\n");
     return 0;
 }
