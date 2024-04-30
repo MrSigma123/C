@@ -14,8 +14,6 @@ char take_first_printed_char(void) {
   while(isspace(ch) != 0) {
     ch = getchar();
   }
-  while (getchar() != '\n') {
-    continue;
-  }
   return ch;
 }
+// UPDATE: basically it's an required exercise 8.6 -- duplicate
