@@ -69,3 +69,21 @@ float subtraction(void) {
 
   return result;
 }
+
+float division(void) {
+  float val1, val2, result;
+  printf("Enter first number: ");
+  scanf("%f", &val1);
+  printf("Enter second number: ");
+  scanf("%f", &val2);
+  if (val2 == 0) {
+    do {
+      printf("Enter second number different than 0: ");
+      scanf("%f", &val2);
+    } while (val2 == 0);
+  }
+  result = val1 / val2;
+  printf("%f / %f = %f\n", val1, val2, result);
+
+  return result;
+}
