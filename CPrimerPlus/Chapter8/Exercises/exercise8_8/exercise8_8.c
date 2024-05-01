@@ -38,7 +38,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-void menu(void);
+void menu(void); /* function prototypes */
 char take_first_printed_char(void);
 float getfloat(void);
 float addition(void);
@@ -47,7 +47,7 @@ float multiplication(void);
 float division(void);
 
 int main(void) {
-  menu();
+  menu(); /* function call */
 
   return 0;
 }
@@ -82,7 +82,7 @@ void menu(void) {
   } while (choice != 'q');
 }
 
-char take_first_printed_char(void) {
+char take_first_printed_char(void) { /* function definitions */
   char ch;
   ch = getchar();
   while(isspace(ch) != 0) {
