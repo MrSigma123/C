@@ -8,8 +8,13 @@
   c) function guess() which doesn't take any arguments and returns
     the int type value
   d) function floor() which takes the variable of the type double
-    and this variable address, then the function writes passed
+    and that variable address, then the function writes passed
     variable under given address
 */
+
+void package(int variable);
+int run(int val1, int val2);
+int guess(void);
+void floor_function(double value, double * address);
 
 
