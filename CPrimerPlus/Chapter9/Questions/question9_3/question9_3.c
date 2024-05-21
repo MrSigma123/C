@@ -10,3 +10,7 @@
   d) function random() which doesn't take any arguments and returns
     one int type value */
 
+char n_char(int character);
+int digits(double digit);
+double * which(double * address1, double * address2);
+int random(void);
