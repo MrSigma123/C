@@ -22,3 +22,16 @@
   menu. The program should just display all options and take the value
   entered by the user.
   */
+#include <stdio.h>
+
+void menu(void);
+
+int main(void) {
+  menu();
+}
+void menu (void) {
+  printf("Choose one of the following options:\n");
+  printf("1) copying files        2) transfering files\n");
+  printf("3) removing files       4) end\n");
+  printf("Enter the number corresponding to desired option: \n");
+}
