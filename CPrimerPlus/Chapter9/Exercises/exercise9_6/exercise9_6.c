@@ -26,5 +26,43 @@ int main(void) {
 
 }
 void sort_three_addresses(double * address1, double * address2, double * address3) {
-
+  double greatest, middle, smallest;
+  // find the greatest
+  if (*address1 > *address2) {
+    greatest = *address1;
+  }
+  else {
+    greatest = *address2;
+  }
+  if (*address3 > greatest) {
+    greatest = *address3;
+  }
+  // find the middle
+  if (*address1 > *address2 && *address1 < greatest) {
+    middle = *address1;
+    smallest = *address2;
+  }
+  if (*address2 > *address1 && *address2 < greatest) {
+    middle = *address2;
+    smallest = *address1;
+  }
+  if (*address1 > *address3 && *address1 < greatest) {
+    middle = *address1;
+    smallest = *address3;
+  }
+  if (*address3 > *address1 && *address3 < greatest) {
+    middle = *address3;
+    smallest = *address1;
+  }
+  if (*address2 > *address3 && *address2 < greatest) {
+    middle = *address2;
+    smallest = *address3;
+  }
+  if (*address3 > *address2 && *address3 < greatest) {
+    middle = *address3;
+    smallest = *address2;
+  }
+  *address1 = smallest;
+  *address2 = middle;
+  *address3 = greatest;
 }
