@@ -7,3 +7,35 @@
   the number of it's order in latin alphabet if it's the letter. In other
   case the function should return -1. */
 
+#include <stdio.h>
+#include <ctype.h>
+
+int character_in_alphabet(char character);
+
+int main(void) {
+  char character_test;
+  printf("This program uses function which test the character stream\n");
+  printf("And for each character displays the number of this character\n");
+  printf("in the alphabet order. In other case the function returns -1.\n");
+  printf("The program works until EOF is detected.\n");
+  printf("\nEnter the character stream:\n");
+  while ((character_test = getchar()) != EOF) {
+    if (isspace(character_test) == 1) {
+      continue;
+    }
+    printf("%c = %d\n", character_test, character_in_alphabet(character_test));
+  }
+  return 0;
+}
+
+int character_in_alphabet(char character) {
+  if (character >= 'a' && character <= 'z') {
+    return character - 96;
+  }
+  else if (character >= 'A' && character <= 'Z') {
+    return character - 64;
+  }
+  else {
+    return -1;
+  }
+}
