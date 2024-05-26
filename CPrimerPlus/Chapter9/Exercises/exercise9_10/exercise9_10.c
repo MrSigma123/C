@@ -6,32 +6,32 @@
   is the octal representation of 129 in decimal system. Check if that function
   works correctly by writing simple program which uses that function. */
 
-// below is the code to be generalized
-
 #include <stdio.h>
 
-void to_binary(unsigned long n);
+void to_base_n(unsigned long n, int base);
 
 int main(void) {
   unsigned long number;
-  printf("Enter the integer number (q to quit):\n");
-  while (scanf("%ld", &number) == 1) {
-    printf("Binary equivalent: ");
-    to_binary(number);
+  int base;
+  printf("This program converts any natural number to specified n_base system.\n");
+  printf("Enter the natural number and n_base (q to quit):\n");
+  while (scanf("%lu %d", &number, &base) == 2) {
+    printf("n_base equivalent of %lu is : ", number);
+    to_base_n(number, base);
     putchar('\n');
-    printf("Enter the integer number (q to quit):\n");
+    printf("Enter the natural number (q to quit):\n");
   }
   printf("Done.\n");
 
   return 0;
 }
 
-void to_binary(unsigned long n) { /* recursive function */
-  int r;
-  r = n % 2;
-  if (n >= 2) {
-    to_binary(n / 2);
+void to_base_n(unsigned long n, int base) { /* recursive function */
+  int digit;
+  digit = n % base;
+  if (n >= base) {
+    to_base_n(n / base, base);
   }
-  putchar(r == 0 ? '0' : '1');
+  printf("%d", digit);
   return;
 }
