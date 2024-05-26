@@ -16,11 +16,15 @@ int main(void) {
   double x, xpow;
   int n;
 
-  printf("Enter the value and it's natural power");
+  printf("Enter the value and it's integer power");
   printf(" to rise this value to this power value.\n");
   printf("Enter q, to stop the program.\n");
   while (scanf("%lf%d", &x, &n) == 2) {
-    xpow = power(x,n);              /* function call */
+    xpow = power(x,n);   
+    if (x == 0 && n == 0) {
+      printf("0 to the power of 0 is undefined. The program will use 1 instead.\n");
+      n = 1;
+    }
     printf("%.3g to the power of %d is %.5g\n", x, n, xpow);
     printf("Enter next pair of numbers or enter q to end.\n");
   }
@@ -28,12 +32,24 @@ int main(void) {
   return 0;
 }
 
-double power(double a, int b) {     /* function definition */
+double power(double a, int b) {
   double pow = 1;
   int i;
-
-  for (i = 1; i <= b; i++)
-    pow *= a;
-  return pow;                       /* return pow value */
+  
+  if (b == 0) { /* include the substitution case for 0 ^ 0 as 0 ^ 1 */
+    return 1;
+  }
+  if (b < 0) {
+    for (i = -1; i >= b; i--) {
+      pow *= 1/a;
+    }
+    return pow;
+  }
+  else {
+    for (i = 1; i <= b; i++) {
+      pow *= a;
+    }
+    return pow;
+  }
 }
 
