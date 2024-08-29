@@ -7,9 +7,14 @@
 #include <stdio.h>
 int main(void) {
   int digits[10];
+  printf("int array: int digits[10]\n");
   float bill[6];
+  printf("float array: float bill[6]\n");
   int mate[3][5];
+  printf("array of array: int mate[3][5]\n");
   char (*wlanc)[20];
+  printf("pointer to array: char (*wlanc)[20]\n");
   char * twz[20];
+  printf("array of pointers: char * twz[20]");
   return 0;
 }
