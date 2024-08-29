@@ -26,8 +26,8 @@ c ) Prepare the prototype of the function and the fuction call
 // Function prototypes
 
 // a) Process t array
-void process_t(double *arr, int rows);
-void process_t_VLA(int rows, double arr[rows]);
+void process_t(double *arr, int n);
+void process_t_VLA(int n, double arr[n]);
 
 // b) Process c array
 void process_c(short (*arr)[C2], int rows);
@@ -59,11 +59,11 @@ int main(void)
 }
 
 // Example implementations of the functions (can be customized)
-void process_t(double *arr, int rows) {
+void process_t(double *arr, int n) {
     // Process the 1D array
 }
 
-void process_t_VLA(int rows, double arr[rows]) {
+void process_t_VLA(int n, double arr[n]) {
     // Process the 1D array using VLA
 }
 
