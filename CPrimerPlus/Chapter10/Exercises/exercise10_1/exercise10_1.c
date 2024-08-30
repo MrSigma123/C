@@ -23,7 +23,7 @@ int main(void) {
   for (year = 0, sum = 0; year < YEARS; year++) {
     /* for each year sum the precipitation for each month */
     for (month = 0, subsum = 0; month < MONTHS; month++) {
-      subsum += rain[year][month];
+      subsum += *(*(rain + year) + month); // subsum += rain[year][month];
     }
     printf("%5d %12.1f\n", 2010 + year, subsum);
     sum += subsum; /* sum of each year */
@@ -36,7 +36,7 @@ int main(void) {
   for (month = 0; month < MONTHS; month++) {
     /* for each month sum the precipitation from several years */
     for (year = 0, subsum = 0; year < YEARS; year++) {
-      subsum += rain[year][month];
+      subsum += *(*(rain + year) + month); // subsum += rain[year][month];
     }
     printf("%4.1f ", subsum / YEARS);
   }
