@@ -17,3 +17,15 @@ copy_arr(source, dest1, 5);
 copy_ptr(source, dest2, 5);
 copy_ptr2(source, dest2, source + 5);
 */
+#include <stdio.h>
+int main(void)
+{
+  double source[5] = {1.1, 2.2, 3.3, 4.4, 5.5};
+  double dest1[5];
+  double dest2[5];
+  copy_arr(source, dest1, 5);
+  copy_ptr(source, dest2, 5);
+  copy_ptr2(source, dest2, source + 5);
+
+  return 0;
+}
