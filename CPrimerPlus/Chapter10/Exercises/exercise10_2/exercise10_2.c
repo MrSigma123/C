@@ -21,6 +21,7 @@ copy_ptr2(source, dest2, source + 5);
 void copy_arr(double * source, double * dest, int size);
 void copy_ptr(double * source, double * dest, int size);
 void copy_ptr2(double * source, double * dest, double * pointer);
+void print_array(double * pointer, int size);
 int main(void)
 {
   double source[5] = {1.1, 2.2, 3.3, 4.4, 5.5};
@@ -32,4 +33,50 @@ int main(void)
 
   return 0;
 }
+void copy_arr(double * source, double * dest, int size)
+{
+  int i;
+  printf("Destination array before element swap:\n");
+  print_array(dest, size);
+  for (i = 0; i < size; i++)
+  {
+    dest[i] = source[i];
+  }
+  printf("\nDestination array after element swap:\n");
+  print_array(dest, size);
+}
+void copy_ptr(double * source, double * dest, int size)
+{
+  int i;
+  printf("\nDestination array before element swap:\n");
+  print_array(dest, size);
+  for (i = 0; i < size; i++)
+  {
+    *(dest+i) = *(source+i);
+  }
+  printf("\nDestination array after element swap:\n");
+  print_array(dest, size);
 
+}
+void copy_ptr2(double * source, double * dest, double * pointer)
+{
+  int i;
+  printf("\nDestination array before element swap:\n");
+  print_array(dest, 5);
+  for (i = 0; (source+i) != pointer ; i++)
+  {
+    *(dest+i) = *(source+i);
+  }
+  printf("\nDestination array after element swap:\n");
+  print_array(dest, 5);
+}
+void print_array(double * pointer, int size)
+{
+  int i;
+  printf("Array elements: ");
+  for (i = 0; i < size; i++)
+  {
+    printf("%lf, ", *(pointer+i));
+  }
+  printf("\n");
+}
