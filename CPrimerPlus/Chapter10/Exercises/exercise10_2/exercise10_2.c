@@ -18,6 +18,9 @@ copy_ptr(source, dest2, 5);
 copy_ptr2(source, dest2, source + 5);
 */
 #include <stdio.h>
+void copy_arr(double * source, double * dest, int size);
+void copy_ptr(double * source, double * dest, int size);
+void copy_ptr2(double * source, double * dest, double * pointer);
 int main(void)
 {
   double source[5] = {1.1, 2.2, 3.3, 4.4, 5.5};
@@ -29,3 +32,4 @@ int main(void)
 
   return 0;
 }
+
