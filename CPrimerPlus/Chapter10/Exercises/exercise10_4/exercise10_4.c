@@ -1,0 +1,4 @@
+/*
+Write a function which returns the index of the greatest value in an array.
+Test it in a simple program.
+*/
