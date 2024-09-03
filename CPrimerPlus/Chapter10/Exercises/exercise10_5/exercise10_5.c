@@ -5,24 +5,29 @@ program.
 */
 #include <stdio.h>
 #define SIZE 10
-int difference_btw_max_min(int * array, int size);
+
+int difference_btw_max_min(int *array, int size);
+
 int main(void)
 {
-  int array[SIZE] = {2,4,6,8,10,12,14,16,18,20};
-  printf("The difference between the max and min is %d.\n",
-         difference_btw_max_min(array, SIZE));
-  return 0;
+    int array[SIZE] = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
+    printf("The difference between the max and min is %d.\n",
+           difference_btw_max_min(array, SIZE));
+    return 0;
 }
-int difference_btw_max_min(int * array, int size)
+
+int difference_btw_max_min(int *array, int size)
 {
-  int i, diff;
-  int max = array[0];
-  int min = array[0];
-  for (i = 1; i < size; i++)
-  {
-    if (array[i] < min) min = array[i];
-    if (array[i] > max) max = array[i];
-  }
-  diff = max - min;
-  return diff;
+    if (size <= 0) return 0; // condition for handling undefined behavior
+
+    int max = array[0];
+    int min = array[0];
+
+    for (int i = 1; i < size; i++)
+    {
+        if (array[i] < min) min = array[i];
+        if (array[i] > max) max = array[i];
+    }
+
+    return max - min;
 }
