@@ -1,0 +1,5 @@
+/*
+Write a function which returns the difference between the greatest and
+the smallest elements stored in an array. Test that function in a simple
+program.
+*/
