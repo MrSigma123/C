@@ -1,0 +1,4 @@
+/*
+Write a function which reverts the order of the elements in an double type
+array. Test this function in a simple program.
+*/
