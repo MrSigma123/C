@@ -7,51 +7,64 @@ should operate on N*M arrays. (If your compiler doesn't allow for VLA arrays
 use instead traditional C programming ways and do the exercise for N*5 array).
 */
 #include <stdio.h>
-void double_VLA_array_copy(int size1, int size2, double * source,
-                                double * destination);
-void print_VLA_2d_array(int size1, int size2, double * source);
+#include <stdlib.h>
+
+void double_VLA_array_copy(int size1, int size2, double *source, double *destination);
+void print_VLA_2d_array(int size1, int size2, double *array);
+
 int main(void)
 {
-  double array[3][5] = {
-    {1,2,3,4,5},
-    {6,7,8,9,10},
-    {11,12,13,14,15}
-  };
-  int size1, size2;
-  double * copied_array;
-  printf("Enter the size of the array.\n");
-  printf("Dimention1 size: ");
-  scanf("%d", &size1);
-  printf("Dimention2 size: ");
-  scanf("%d", &size2);
-  double_VLA_array_copy(size1, size2, array, copied_array);
-  print_VLA_2d_array(size1, size2, copied_array);
-  return 0;
-}
-void double_VLA_array_copy(int size1, int size2, double * source,
-                                double * destination)
-{
-  double * new_array[size1][size2];
-  int i, j;
-  int k = 0;
-  for (i = 0; i < size1; i++)
-  {
-    for (j = 0; j < size2; j++)
+    double array[3][5] = {
+        {1, 2, 3, 4, 5},
+        {6, 7, 8, 9, 10},
+        {11, 12, 13, 14, 15}
+    };
+    int size1 = 3, size2 = 5; // Fixed sizes for the example
+    double *copied_array = (double *)malloc(size1 * size2 * sizeof(double)); // Dynamically allocate memory for copied array
+
+    if (copied_array == NULL)
     {
-      new_array[i][j] = source+k++;
+        printf("Memory allocation failed\n");
+        return 1;
     }
-  }
+
+    // Copy array elements
+    double_VLA_array_copy(size1, size2, (double *)array, copied_array);
+
+    // Print original and copied arrays
+    printf("Original array:\n");
+    print_VLA_2d_array(size1, size2, (double *)array);
+
+    printf("\nCopied array:\n");
+    print_VLA_2d_array(size1, size2, copied_array);
+
+    // Free allocated memory
+    free(copied_array);
+    return 0;
 }
-void print_VLA_2d_array(int size1, int size2, double * source)
+
+void double_VLA_array_copy(int size1, int size2, double *source, double *destination)
 {
-  int i, j;
-  int k = 0;
-  for (i = 0; i < size1; i++)
-  {
-    for (j = 0; j < size2; j++)
+    int i, j;
+    for (i = 0; i < size1; i++)
     {
-      printf("%lf", *(source+k++));
+        for (j = 0; j < size2; j++)
+        {
+            destination[i * size2 + j] = source[i * size2 + j]; // Copy each element
+        }
     }
-    printf("\n");
-  }
 }
+
+void print_VLA_2d_array(int size1, int size2, double *array)
+{
+    int i, j;
+    for (i = 0; i < size1; i++)
+    {
+        for (j = 0; j < size2; j++)
+        {
+            printf("%lf ", array[i * size2 + j]); // Print each element
+        }
+        printf("\n");
+    }
+}
+
