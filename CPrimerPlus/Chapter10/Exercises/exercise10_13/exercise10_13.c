@@ -16,3 +16,37 @@ argument, and tasks c) and d) should return the result to the calling program.
 You don't need to worry about verifying the user's input — assume the user will 
 enter the data correctly.
 */
+#include <stdio.h>
+#define SIZE1 3
+#define SIZE2 5
+void define_2d_array(int array[][SIZE2], int size1);
+double avg_of_1d_array(int array[], int size);
+int main(void)
+{
+  int array[SIZE1][SIZE2] = {0}; // initialized with zeros
+  define_2d_array(array, SIZE1);
+  return 0;
+}
+void define_2d_array(int array[][SIZE2], int size1)
+{
+  int i, j;
+  for (i = 0; i < size1; i++)
+  {
+    for (j = 0; j < SIZE2; j++)
+    {
+      scanf("%d", &array[i][j]);
+    }
+  }
+}
+double avg_of_1d_array(int array[], int size)
+{
+  double avg = 0.0;
+  int sum = 0;
+  int i;
+  for (i = 0; i < size; i++)
+  {
+    sum += array[i];
+  }
+  avg = (double)sum / i;
+  return avg;
+}
