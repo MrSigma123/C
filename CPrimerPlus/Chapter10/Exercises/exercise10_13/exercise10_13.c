@@ -22,6 +22,7 @@ enter the data correctly.
 void define_2d_array(int array[][SIZE2], int size1);
 double avg_of_1d_array(int array[], int size);
 double avg_of_2d_array(int array[][SIZE2], int size1);
+int find_greatest_value_in_2d_array(int array[][SIZE2], int size1);
 int main(void)
 {
   int array[SIZE1][SIZE2] = {0}; // initialized with zeros
@@ -65,4 +66,18 @@ double avg_of_2d_array(int array[][SIZE2], int size1)
   }
   avg = (double)sum / (i * j);
   return avg;
+}
+int find_greatest_value_in_2d_array(int array[][SIZE2], int size1)
+{
+  int i, j;
+  int greatest = array[0][0];
+  for (i = 0; i < size1; i++)
+  {
+    for (j = 0; j < SIZE2; j++)
+    {
+      if (array[i][j] > greatest)
+        greatest = array[i][j];
+    }
+  }
+  return greatest;
 }
