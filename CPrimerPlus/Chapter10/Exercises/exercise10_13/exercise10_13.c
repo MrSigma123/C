@@ -23,6 +23,7 @@ void define_2d_array(int array[][SIZE2], int size1);
 double avg_of_1d_array(int array[], int size);
 double avg_of_2d_array(int array[][SIZE2], int size1);
 int find_greatest_value_in_2d_array(int array[][SIZE2], int size1);
+void display_2d_array(int array[][SIZE2], int size1);
 int main(void)
 {
   int array[SIZE1][SIZE2] = {0}; // initialized with zeros
@@ -80,4 +81,19 @@ int find_greatest_value_in_2d_array(int array[][SIZE2], int size1)
     }
   }
   return greatest;
+}
+void display_2d_array(int array[][SIZE2], int size1)
+{
+  int i, j;
+  for (i = 0; i < SIZE2; i++)
+  {
+    for (j = 0; j < size1; j++)
+    {
+      if (j != SIZE2 - 1)
+        printf("%d, ", array[i][j]);
+      else
+        printf("%d", array[i][j]);
+    }
+    printf("\n");
+  }
 }
