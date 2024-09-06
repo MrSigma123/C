@@ -7,6 +7,8 @@ its functionality executed by separate functions instead of 'main()' function.
 #include <stdio.h>
 #define MONTHS 12     /* number of months in years */
 #define YEARS 5       /* number of data years      */
+void yearly_precipitation(const float array[][12], int years);
+void monthly_precipitation(const float array[][12], int years);
 int main(void) {
   /* rain data initialization from years 2010 - 2014 */
   const float rain[YEARS][MONTHS] = {
@@ -16,18 +18,56 @@ int main(void) {
     {7.2,9.9,8.4,3.3,1.2,0.8,0.4,0.0,0.6,1.7,4.3,6.2},
     {7.6,5.6,3.8,2.8,3.8,0.2,0.0,0.0,0.0,1.3,2.6,5.2}
   };
+/*
+  int year, month;
+  float subsum, sum;
+  printf(" YEAR         PRECIPITATION (in inches)\n");
+  for (year = 0, sum = 0; year < YEARS; year++) {
+    // for each year sum the precipitation for each month
+    for (month = 0, subsum = 0; month < MONTHS; month++) {
+      subsum += rain[year][month];
+    }
+    printf("%5d %12.1f\n", 2010 + year, subsum);
+    sum += subsum; // sum of each year
+  }
+*/
+/*
+  printf("MONTHLY AVERAGE:\n\n");
+  printf(" Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  ");
+  printf("Nov  Dec\n");
+
+  for (month = 0; month < MONTHS; month++) {
+    // for each month sum the precipitation from several years 
+    for (year = 0, subsum = 0; year < YEARS; year++) {
+      subsum += rain[year][month];
+    }
+    printf("%4.1f ", subsum / YEARS);
+  }
+  printf("\n");
+*/
+  yearly_precipitation(rain, YEARS);
+  monthly_precipitation(rain, YEARS);
+  return 0;
+}
+void yearly_precipitation(const float array[][12], int years)
+{
   int year, month;
   float subsum, sum;
   printf(" YEAR         PRECIPITATION (in inches)\n");
   for (year = 0, sum = 0; year < YEARS; year++) {
     /* for each year sum the precipitation for each month */
     for (month = 0, subsum = 0; month < MONTHS; month++) {
-      subsum += rain[year][month];
+      subsum += array[year][month];
     }
     printf("%5d %12.1f\n", 2010 + year, subsum);
     sum += subsum; /* sum of each year */
   }
   printf("\nYearly average is %.1f inches\n\n", sum/YEARS);
+}
+void monthly_precipitation(const float array[][12], int years)
+{
+  int year, month;
+  float subsum;
   printf("MONTHLY AVERAGE:\n\n");
   printf(" Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  ");
   printf("Nov  Dec\n");
@@ -35,11 +75,9 @@ int main(void) {
   for (month = 0; month < MONTHS; month++) {
     /* for each month sum the precipitation from several years */
     for (year = 0, subsum = 0; year < YEARS; year++) {
-      subsum += rain[year][month];
+      subsum += array[year][month];
     }
     printf("%4.1f ", subsum / YEARS);
   }
   printf("\n");
-  return 0;
 }
-
