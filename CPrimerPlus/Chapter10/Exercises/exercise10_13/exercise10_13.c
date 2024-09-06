@@ -1,18 +1,18 @@
 /*
-Write a program that asks the user about entering three sets which consists of
-the five double type values and then:
-a) Writes those data into 3*5 sized array
-b) Calculates the average for the whole separate set
-c) Calculates the average for all the values
-d) Finds the greates value from those 15 values
-e) Displays the results
+Write a program that asks the user to enter three sets, each consisting of 
+five double-type values, and then:
 
-Each of the tasks should be executed by the separate function which use
-the standard C programming arrays approach. Complete the task b) by using
-the function which calculate and returs the average of the one-dimensional
-array. Use the loop to call it three times. The other tasks should take as
-argument the whole array and the exercises c) and d) should return the result
-to its calling program. You don't have to worry about verifying the input from
-the user - assume that the user won't make any mistakes while entering the
-data.
+a) Stores these data in a 3x5 array  
+b) Calculates the average for each individual set  
+c) Calculates the average for all the values combined  
+d) Finds the greatest value from the 15 values  
+e) Displays the results  
+
+Each of these tasks should be executed by a separate function that uses the 
+standard C array approach. Complete task b) using a function that calculates 
+and returns the average of a one-dimensional array. Use a loop to call this 
+function three times. The other tasks should take the entire array as an 
+argument, and tasks c) and d) should return the result to the calling program. 
+You don't need to worry about verifying the user's input — assume the user will 
+enter the data correctly.
 */
