@@ -21,6 +21,7 @@ enter the data correctly.
 #define SIZE2 5
 void define_2d_array(int array[][SIZE2], int size1);
 double avg_of_1d_array(int array[], int size);
+double avg_of_2d_array(int array[][SIZE2], int size1);
 int main(void)
 {
   int array[SIZE1][SIZE2] = {0}; // initialized with zeros
@@ -48,5 +49,20 @@ double avg_of_1d_array(int array[], int size)
     sum += array[i];
   }
   avg = (double)sum / i;
+  return avg;
+}
+double avg_of_2d_array(int array[][SIZE2], int size1)
+{
+  double avg = 0.0;
+  int sum = 0;
+  int i, j;
+  for (i = 0; i < size1; i++)
+  {
+    for (j = 0; j < SIZE2; j++)
+    {
+      sum += array[i][j];
+    }
+  }
+  avg = (double)sum / (i * j);
   return avg;
 }
