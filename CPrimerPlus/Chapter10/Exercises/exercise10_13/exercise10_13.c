@@ -22,7 +22,7 @@ enter the data correctly.
 void define_2d_array(double array[][SIZE2], int size1);
 double avg_of_1d_array(double array[], int size);
 double avg_of_2d_array(double array[][SIZE2], int size1);
-int find_greatest_value_in_2d_array(double array[][SIZE2], int size1);
+double find_greatest_value_in_2d_array(double array[][SIZE2], int size1);
 void display_2d_array(double array[][SIZE2], int size1);
 int main(void)
 {
@@ -35,14 +35,14 @@ int main(void)
   // function b)
   for (i = 0; i < SIZE1; i++)
   {
-    printf("The No.%d set aerage is %lf.\n", i+1, avg_of_1d_array(array[i], SIZE2));
+    printf("The No.%d set average is %lf.\n", i+1, avg_of_1d_array(array[i], SIZE2));
   }
 
   // function c)
   printf("\nThe average from the whole array is %lf\n", avg_of_2d_array(array, SIZE1));
 
   // function d)
-  printf("\nThe greatest value in a whole array is %d.\n", find_greatest_value_in_2d_array(array, SIZE1));
+  printf("\nThe greatest value in a whole array is %lf.\n", find_greatest_value_in_2d_array(array, SIZE1));
   
   // function e)
   printf("\nHere are the elements stored in the array:\n");
@@ -65,20 +65,17 @@ void define_2d_array(double array[][SIZE2], int size1)
 }
 double avg_of_1d_array(double array[], int size)
 {
-  double avg = 0.0;
-  int sum = 0;
+  double sum = 0.0;
   int i;
   for (i = 0; i < size; i++)
   {
     sum += array[i];
   }
-  avg = (double)sum / i;
-  return avg;
+  return sum / size;
 }
 double avg_of_2d_array(double array[][SIZE2], int size1)
 {
-  double avg = 0.0;
-  int sum = 0;
+  double sum = 0.0;
   int i, j;
   for (i = 0; i < size1; i++)
   {
@@ -87,13 +84,12 @@ double avg_of_2d_array(double array[][SIZE2], int size1)
       sum += array[i][j];
     }
   }
-  avg = (double)sum / (size1 * SIZE2);
-  return avg;
+  return sum / (size1 * SIZE2);
 }
-int find_greatest_value_in_2d_array(double array[][SIZE2], int size1)
+double find_greatest_value_in_2d_array(double array[][SIZE2], int size1)
 {
   int i, j;
-  int greatest = array[0][0];
+  double greatest = array[0][0];
   for (i = 0; i < size1; i++)
   {
     for (j = 0; j < SIZE2; j++)
