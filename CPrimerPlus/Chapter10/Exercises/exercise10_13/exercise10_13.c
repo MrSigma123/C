@@ -19,15 +19,15 @@ enter the data correctly.
 #include <stdio.h>
 #define SIZE1 3
 #define SIZE2 5
-void define_2d_array(int array[][SIZE2], int size1);
-double avg_of_1d_array(int array[], int size);
-double avg_of_2d_array(int array[][SIZE2], int size1);
-int find_greatest_value_in_2d_array(int array[][SIZE2], int size1);
-void display_2d_array(int array[][SIZE2], int size1);
+void define_2d_array(double array[][SIZE2], int size1);
+double avg_of_1d_array(double array[], int size);
+double avg_of_2d_array(double array[][SIZE2], int size1);
+int find_greatest_value_in_2d_array(double array[][SIZE2], int size1);
+void display_2d_array(double array[][SIZE2], int size1);
 int main(void)
 {
   int i;
-  int array[SIZE1][SIZE2] = {0}; // initialized with zeros
+  double array[SIZE1][SIZE2] = {0}; // initialized with zeros
   
   // function a)
   define_2d_array(array, SIZE1);
@@ -35,7 +35,7 @@ int main(void)
   // function b)
   for (i = 0; i < SIZE1; i++)
   {
-    printf("The No.%d set aerage is %lf.\n", i+1, avg_of_1d_array(array+i, SIZE2));
+    printf("The No.%d set aerage is %lf.\n", i+1, avg_of_1d_array(array[i], SIZE2));
   }
 
   // function c)
@@ -50,7 +50,7 @@ int main(void)
 
   return 0;
 }
-void define_2d_array(int array[][SIZE2], int size1)
+void define_2d_array(double array[][SIZE2], int size1)
 {
   int i, j;
   for (i = 0; i < size1; i++)
@@ -58,12 +58,12 @@ void define_2d_array(int array[][SIZE2], int size1)
     printf("Enter the values for the No.%d set:\n", i+1);
     for (j = 0; j < SIZE2; j++)
     {
-      scanf("%d", &array[i][j]);
+      scanf("%lf", &array[i][j]);
     }
   }
   printf("\n");
 }
-double avg_of_1d_array(int array[], int size)
+double avg_of_1d_array(double array[], int size)
 {
   double avg = 0.0;
   int sum = 0;
@@ -75,7 +75,7 @@ double avg_of_1d_array(int array[], int size)
   avg = (double)sum / i;
   return avg;
 }
-double avg_of_2d_array(int array[][SIZE2], int size1)
+double avg_of_2d_array(double array[][SIZE2], int size1)
 {
   double avg = 0.0;
   int sum = 0;
@@ -87,10 +87,10 @@ double avg_of_2d_array(int array[][SIZE2], int size1)
       sum += array[i][j];
     }
   }
-  avg = (double)sum / (i * j);
+  avg = (double)sum / (size1 * SIZE2);
   return avg;
 }
-int find_greatest_value_in_2d_array(int array[][SIZE2], int size1)
+int find_greatest_value_in_2d_array(double array[][SIZE2], int size1)
 {
   int i, j;
   int greatest = array[0][0];
@@ -104,7 +104,7 @@ int find_greatest_value_in_2d_array(int array[][SIZE2], int size1)
   }
   return greatest;
 }
-void display_2d_array(int array[][SIZE2], int size1)
+void display_2d_array(double array[][SIZE2], int size1)
 {
   int i, j;
   for (i = 0; i < size1; i++)
@@ -112,9 +112,9 @@ void display_2d_array(int array[][SIZE2], int size1)
     for (j = 0; j < SIZE2; j++)
     {
       if (j != SIZE2 - 1)
-        printf("%2d, ", array[i][j]);
+        printf("%9lf, ", array[i][j]);
       else
-        printf("%2d", array[i][j]);
+        printf("%9lf", array[i][j]);
     }
     printf("\n");
   }
