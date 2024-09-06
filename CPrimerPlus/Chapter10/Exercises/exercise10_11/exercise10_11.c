@@ -16,6 +16,13 @@ int main(void)
     {6,7,8,9,10},
     {11,12,13,14,15}
   };
+  printf("The array before doubling:\n");
+  display_2d_array(array, ROWS);
+
+  double_2d_array(array, ROWS);
+  
+  printf("\nThe array after doubling:\n");
+  display_2d_array(array, ROWS);
   return 0;
 }
 void display_2d_array(int array[][COLUMNS], int rows)
@@ -25,11 +32,12 @@ void display_2d_array(int array[][COLUMNS], int rows)
   {
     for (j = 0; j < COLUMNS; j++)
     {
-      if (i !=  - 1)
-        printf("%d, ", array[i][j]);
+      if (j != COLUMNS - 1)
+        printf("%2d, ", array[i][j]);
       else
-        printf("%d", array[i][j]);
+        printf("%2d", array[i][j]);
     }
+    printf("\n");
   }
 }
 void double_2d_array(int array[][COLUMNS], int rows)
