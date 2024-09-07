@@ -89,7 +89,7 @@ double avg_of_2d_array(int size1, int size2, double array[size1][size2])
       sum += array[i][j];
     }
   }
-  return sum / (size1 * SIZE2);
+  return sum / (size1 * size2);
 }
 double find_greatest_value_in_2d_array(int size1, int size2, double array[size1][size2])
 {
@@ -112,7 +112,7 @@ void display_2d_array(int size1, int size2, double array[size1][size2])
   {
     for (j = 0; j < size2; j++)
     {
-      if (j != SIZE2 - 1)
+      if (j != size2 - 1)
         printf("%9lf, ", array[i][j]);
       else
         printf("%9lf", array[i][j]);
