@@ -24,7 +24,7 @@ enter the data correctly.
 #include <stdio.h>
 #define SIZE1 3
 #define SIZE2 5
-void define_2d_array(double array[][SIZE2], int size1);
+void define_2d_array(int size1, int size2, double array[size1][size2]); // void define_2d_array(double array[][SIZE2], int size1);
 double avg_of_1d_array(double array[], int size);
 double avg_of_2d_array(double array[][SIZE2], int size1);
 double find_greatest_value_in_2d_array(double array[][SIZE2], int size1);
@@ -35,7 +35,7 @@ int main(void)
   double array[SIZE1][SIZE2] = {0}; // initialized with zeros
   
   // function a)
-  define_2d_array(array, SIZE1);
+  define_2d_array(SIZE1, SIZE2, array);
 
   // function b)
   for (i = 0; i < SIZE1; i++)
@@ -55,13 +55,13 @@ int main(void)
 
   return 0;
 }
-void define_2d_array(double array[][SIZE2], int size1)
+void define_2d_array(int size1, int size2, double array[size1][size2])
 {
   int i, j;
   for (i = 0; i < size1; i++)
   {
     printf("Enter the values for the No.%d set:\n", i+1);
-    for (j = 0; j < SIZE2; j++)
+    for (j = 0; j < size2; j++)
     {
       scanf("%lf", &array[i][j]);
     }
