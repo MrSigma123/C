@@ -24,8 +24,8 @@ enter the data correctly.
 #include <stdio.h>
 #define SIZE1 3
 #define SIZE2 5
-void define_2d_array(int size1, int size2, double array[size1][size2]); // void define_2d_array(double array[][SIZE2], int size1);
-double avg_of_1d_array(double array[], int size);
+void define_2d_array(int size1, int size2, double array[size1][size2]);     // void define_2d_array(double array[][SIZE2], int size1);
+double avg_of_1d_array(int size, double array[size]);                     // double avg_of_1d_array(double array[], int size);
 double avg_of_2d_array(double array[][SIZE2], int size1);
 double find_greatest_value_in_2d_array(double array[][SIZE2], int size1);
 void display_2d_array(double array[][SIZE2], int size1);
@@ -40,7 +40,7 @@ int main(void)
   // function b)
   for (i = 0; i < SIZE1; i++)
   {
-    printf("The No.%d set average is %lf.\n", i+1, avg_of_1d_array(array[i], SIZE2));
+    printf("The No.%d set average is %lf.\n", i+1, avg_of_1d_array(SIZE2, array[i]));
   }
 
   // function c)
@@ -68,7 +68,7 @@ void define_2d_array(int size1, int size2, double array[size1][size2])
   }
   printf("\n");
 }
-double avg_of_1d_array(double array[], int size)
+double avg_of_1d_array(int size, double array[size])
 {
   double sum = 0.0;
   int i;
