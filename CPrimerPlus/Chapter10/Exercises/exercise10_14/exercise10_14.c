@@ -28,7 +28,7 @@ void define_2d_array(int size1, int size2, double array[size1][size2]);     // v
 double avg_of_1d_array(int size, double array[size]);                       // double avg_of_1d_array(double array[], int size);
 double avg_of_2d_array(int size1, int size2, double array[size1][size2]);   // double avg_of_2d_array(double array[][SIZE2], int size1);
 double find_greatest_value_in_2d_array(int size1, int size2, double array[size1][size2]); // double find_greatest_value_in_2d_array(double array[][SIZE2], int size1);
-void display_2d_array(double array[][SIZE2], int size1);
+void display_2d_array(int size1, int size2, double array[size1][size2]);     // void display_2d_array(double array[][SIZE2], int size1);
 int main(void)
 {
   int i;
@@ -51,7 +51,7 @@ int main(void)
   
   // function e)
   printf("\nHere are the elements stored in the array:\n");
-  display_2d_array(array, SIZE1);
+  display_2d_array(SIZE1, SIZE2, array);
 
   return 0;
 }
@@ -84,7 +84,7 @@ double avg_of_2d_array(int size1, int size2, double array[size1][size2])
   int i, j;
   for (i = 0; i < size1; i++)
   {
-    for (j = 0; j < SIZE2; j++)
+    for (j = 0; j < size2; j++)
     {
       sum += array[i][j];
     }
@@ -97,7 +97,7 @@ double find_greatest_value_in_2d_array(int size1, int size2, double array[size1]
   double greatest = array[0][0];
   for (i = 0; i < size1; i++)
   {
-    for (j = 0; j < SIZE2; j++)
+    for (j = 0; j < size2; j++)
     {
       if (array[i][j] > greatest)
         greatest = array[i][j];
@@ -105,12 +105,12 @@ double find_greatest_value_in_2d_array(int size1, int size2, double array[size1]
   }
   return greatest;
 }
-void display_2d_array(double array[][SIZE2], int size1)
+void display_2d_array(int size1, int size2, double array[size1][size2])
 {
   int i, j;
   for (i = 0; i < size1; i++)
   {
-    for (j = 0; j < SIZE2; j++)
+    for (j = 0; j < size2; j++)
     {
       if (j != SIZE2 - 1)
         printf("%9lf, ", array[i][j]);
