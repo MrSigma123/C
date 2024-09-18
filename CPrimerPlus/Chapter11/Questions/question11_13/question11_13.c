@@ -5,23 +5,30 @@
 /* compare.c -- this works */ // provided code
 #include <stdio.h>
 #include <string.h> /* declares strcmp() */
-#define ANSWER "Grant"
+#include <ctype.h> // for tolower() function
+#define ANSWER "grant" // change for lowercase
 #define MAX 40
+
 char *input(char *c, int size);
+char *to_lower_str(char * string);
 
 int main(void)
 {
   char test[MAX];
   puts("Who is buried inside Grant's tomb?");
   input(test, MAX);
+  to_lower_str(test);
+  
   while (strcmp(test, ANSWER) != 0)
   {
-    puts("Unfortunately it's not a correct asnwer. Try again.");
+    puts("Unfortunately it's not a correct answer. Try again.");
     input(test, MAX);
+    to_lower_str(test);
   }
   puts("That's right!");
   return 0;
 }
+
 char *input(char *c, int size)
 {
   char * result;
@@ -49,3 +56,13 @@ char *input(char *c, int size)
   return result;
 }
 
+char *to_lower_str(char * string)
+{
+  char * start = string;
+  while (*string != '\0')
+  {
+    *string = tolower(*string);
+    string++;
+  }
+  return start;
+}
