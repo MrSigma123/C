@@ -21,7 +21,7 @@ int main(void)
   printf("Enter the value: ");
   scanf("%d ", &n);
 
-  if (n > 80)
+  if (n > 80 || n <= 0)
   {
     printf("You can input up to 80 characters.\n");
     return 1;
@@ -40,11 +40,16 @@ void grab_n_stdin_chars(char * array, int n)
   int i = 0;
   char ch = '0';
 
-  while (i < n) // for handling newline character
+  while (i < n)
   {
     ch = getchar();
 
     if (ch == EOF) // end of file handling
+    {
+      break;
+    }
+
+    if (ch == ' ')
     {
       break;
     }
