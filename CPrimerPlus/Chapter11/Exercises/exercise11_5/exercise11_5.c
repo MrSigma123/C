@@ -36,7 +36,7 @@ int main(void){
 
     printf("Enter the character to be found: ");
     scanf(" %c", &character);
-    while (getchar() != '\n'); // clear the buffer
+    while (getchar() != '\n'); // clear the whole buffer
 
     result = first_char_occurrence(string, character);
     if (result == NULL){
