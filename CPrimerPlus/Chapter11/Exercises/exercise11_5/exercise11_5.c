@@ -11,40 +11,51 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char * first_char_occurence(char * string, char target);
 
 int main(void){
-  char string[80];
+  char string[81];
   char character;
   char * result;
 
   printf("The program will take a word and a test character in a loop\n");
-  printf("To stop the loop enter an empty line.\n\n");
+  printf("To stop the loop enter thre dots in a row (...).\n");
  
   while(1){
-    printf("Enter a word: ");
-    char string[81];
+    printf("\nEnter a word: ");
     fgets(string, 80, stdin);
 
-    if(string[0] == '\n'){
+    if(strcmp(string, "...") == 1){
+      printf("\nThe program ends here.\n");
+      break;
     }
+    fflush(stdout);
 
     printf("Enter the character to be found: ");
     scanf("%c", &character);
+
     result = first_char_occurence(string, character);
     if (result == NULL){
-      printf("There is any occurecne of the \"%c\" character.",
+      printf("There is any occurecne of the \"%c\" character.\n",
            character);
     }
     else{
       printf("The first occurence of \"%c\" character is the "
-          "character under %p", character, result);
+          "character under %p\n", character, result);
     }
   }
   return 0;
 }
 
 char * first_char_occurence(char * string, char target){
-  return;
+  int i;
+  for (i=0; string[i] != '\0'; i++){
+    if(string[i] == target){
+      return &string[i];
+    }
+  }
+  fflush(stdout);
+  return NULL;
 }
