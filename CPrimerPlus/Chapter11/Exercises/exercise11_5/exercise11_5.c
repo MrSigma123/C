@@ -9,3 +9,42 @@
   various data into tested function.
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+
+char * first_char_occurence(char * string, char target);
+
+int main(void){
+  char string[80];
+  char character;
+  char * result;
+
+  printf("The program will take a word and a test character in a loop\n");
+  printf("To stop the loop enter an empty line.\n\n");
+ 
+  while(1){
+    printf("Enter a word: ");
+    char string[81];
+    fgets(string, 80, stdin);
+
+    if(string[0] == '\n'){
+    }
+
+    printf("Enter the character to be found: ");
+    scanf("%c", &character);
+    result = first_char_occurence(string, character);
+    if (result == NULL){
+      printf("There is any occurecne of the \"%c\" character.",
+           character);
+    }
+    else{
+      printf("The first occurence of \"%c\" character is the "
+          "character under %p", character, result);
+    }
+  }
+  return 0;
+}
+
+char * first_char_occurence(char * string, char target){
+  return;
+}
