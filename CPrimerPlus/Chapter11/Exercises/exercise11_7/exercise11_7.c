@@ -21,7 +21,7 @@ int main(void){
   char * result;
   int char_amount;
   
-  printf("This program will include a fuction which will copy s1 into s2.\n");
+  printf("This program will include a fuction which will copy s2 into s1.\n");
   printf("The function will be tested on various data in a loop.\n");
   printf("(To close the program type EXIT as s1 and s2)\n");
 
@@ -35,15 +35,16 @@ int main(void){
     }
     printf("Enter the number of characters to be copied: ");
     scanf(" %d", &char_amount);
-    result = strncpy(s1, s2, char_amount);
+    result = strncpy_v2(s1, s2, char_amount);
     print_array(result, char_amount);
+    printf("\n");
   }
 
   return 0;
 }
 
 char * strncpy_v2(char dest[], char source[], int n){
-  int i;
+  int i = 0;
   while (i<n && source[i]!='\0'){
     dest[i] = source[i];
     i++;
