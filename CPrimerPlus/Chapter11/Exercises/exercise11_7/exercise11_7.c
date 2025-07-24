@@ -7,3 +7,56 @@
   of that function.
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define SIZE 81
+
+char * strncpy_v2(char dest[], char source[], int n);
+void print_array(char array[], int size);
+
+int main(void){
+  char s1[SIZE];
+  char s2[SIZE];
+  char * result;
+  int char_amount;
+  
+  printf("This program will include a fuction which will copy s1 into s2.\n");
+  printf("The function will be tested on various data in a loop.\n");
+  printf("(To close the program type EXIT as s1 and s2)\n");
+
+  while(1){
+    printf("\nEnter the s1: ");
+    scanf(" %s", s1);
+    printf("Enter the s2: ");
+    scanf(" %s", s2);
+    if (strcmp(s1,s2) == 0 && strcmp(s1, "EXIT") == 0){
+      break;
+    }
+    printf("Enter the number of characters to be copied: ");
+    scanf(" %d", &char_amount);
+    result = strncpy(s1, s2, char_amount);
+    print_array(result, char_amount);
+  }
+
+  return 0;
+}
+
+char * strncpy_v2(char dest[], char source[], int n){
+  int i;
+  for (i=0; i<SIZE && i<n ;i++){
+    if (source[i] == '\0'){
+      dest[i] = '\0';
+      break;
+    }
+    dest[i] = source[i];
+  }
+  return dest;
+}
+
+void print_array(char array[], int size){
+  int i;
+  for (i=0; i<size; i++){
+    printf("%c", array[i]);
+  }
+}
