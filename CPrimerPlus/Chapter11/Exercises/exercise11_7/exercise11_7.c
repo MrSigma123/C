@@ -44,12 +44,12 @@ int main(void){
 
 char * strncpy_v2(char dest[], char source[], int n){
   int i;
-  for (i=0; i<SIZE && i<n ;i++){
-    if (source[i] == '\0'){
-      dest[i] = '\0';
-      break;
-    }
+  while (i<n && source[i]!='\0'){
     dest[i] = source[i];
+    i++;
+  }
+  while (i<n){
+    dest[i++] = '\0';
   }
   return dest;
 }
