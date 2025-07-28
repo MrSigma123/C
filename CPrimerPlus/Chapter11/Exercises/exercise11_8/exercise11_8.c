@@ -32,7 +32,7 @@ int main(void){
     }
     printf("Enter the second string: ");
     fgets(string2, SIZE, stdin);
-    string1[strcspn(string2, "\n")] = '\0';
+    string2[strcspn(string2, "\n")] = '\0';
     if (strcmp(string2, "...") == 0){
       printf("You've entered exid condition. The program ends here.\n");
       break;
@@ -44,7 +44,7 @@ int main(void){
       printf("The string2 is not present in string1.\n");
     }
     else{
-      printf("The string2 is present in string2.\n");
+      printf("The string2 is present in string1.\n");
       printf("The beginning of the string starts at %p.\n",
              result);
     }
@@ -53,24 +53,20 @@ int main(void){
   return 0;
 }
 
-char * include_str(char * string_1, char * string_2){
-  int flag_string_start = 0;
-  char * target_address;
-  int i;
+char * include_str(char * string_1, char * string_2) {
+    int i, j;
 
-  for (i=0; *(string_1+i) != '\0' || *string_2+i != '\0'; i++){
-    if (*(string_1+i) == *(string_2+i)){
-      flag_string_start = 1;
-      target_address = (string_1+i);
+    for (i = 0; string_1[i] != '\0'; i++) {
+        for (j = 0; string_2[j] != '\0'; j++) {
+            if (string_1[i + j] != string_2[j]) {
+                break;
+            }
+        }
+        if (string_2[j] == '\0') {
+            return &string_1[i];
+        }
     }
-    else{
-    flag_string_start = 0;
-    }
-  }
 
-  if (flag_string_start == 1){
-    return target_address;
-  }
-
-  return NULL;
+    return NULL;
 }
+
